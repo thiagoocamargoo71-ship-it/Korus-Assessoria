@@ -1,7 +1,14 @@
 import { Search, ClipboardList, FileText, Send, CheckCircle2 } from 'lucide-react';
 
+type Step = {
+  number: number;
+  icon: React.ElementType;
+  title: string;
+  description: string;
+};
+
 export default function HowItWorks() {
-  const steps = [
+  const steps: Step[] = [
     {
       number: 1,
       icon: Search,
@@ -35,64 +42,102 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="py-20 section-gradient">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Como Funciona
-          </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Um processo estruturado e transparente para conquistar seu visto
-          </p>
-        </div>
+    <section id="howItWorks" className="relative py-32 px-6 overflow-hidden bg-background">
 
-        <div className="relative">
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-[#3B82F6] via-[#E11D48] to-[#3B82F6] transform -translate-y-1/2"></div>
+      {/* 🎨 FUNDO */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(74, 94, 2, 0.32),transparent_60%)]"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(120deg,#1A1F26, #0B1F3A)] opacity-90"></div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 relative">
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <div key={index} className="relative animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
-                  <div className="card-glass p-6 hover:bg-white/12 transition-all duration-300 hover:-translate-y-2 h-full">
-                    <div className="flex flex-col items-center text-center">
-                      <div className="relative mb-6">
-                        <div className="bg-gradient-to-br from-[#3B82F6] to-[#E11D48] w-20 h-20 rounded-full flex items-center justify-center shadow-lg">
-                          <Icon className="w-10 h-10 text-white" />
-                        </div>
-                        <div className="absolute -top-2 -right-2 bg-[#E11D48] w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
-                          {step.number}
-                        </div>
-                      </div>
+      {/* 🌫️ TEXTURA */}
+      <div className="absolute inset-0 opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/noise.png')]"></div>
 
-                      <h3 className="text-xl font-bold text-white mb-3">
-                        {step.title}
-                      </h3>
-                      <p className="text-gray-300 text-sm leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="mt-16 card-glass rounded-3xl p-12 text-center text-white">
-          <h3 className="text-3xl font-bold mb-4">
-            Pronto para Começar Sua Jornada Internacional?
-          </h3>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Nossa equipe está preparada para transformar seu sonho de viajar, trabalhar ou estudar no exterior em realidade.
-          </p>
-          <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-[#E11D48] hover:bg-[#c91c40] text-white px-10 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
+      {/* 🟡 TÍTULO */}
+      <div className="text-center mb-20 relative z-10">
+        <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
+          Como{' '}
+          <span
+            className="bg-clip-text text-transparent"
+            style={{
+              backgroundImage: 'linear-gradient(180deg, #e3c59e 0%, #b38b5f 40%, #8a633a 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
           >
-            Iniciar Minha Análise de Perfil
-          </button>
-        </div>
+            Funciona
+          </span>
+        </h2>
+
+        <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-[#b38b5f]/40 to-transparent mx-auto mb-8"></div>
+
+        <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+          Um processo estruturado e transparente para conquistar seu visto.
+        </p>
+      </div>
+
+      {/* 💎 GRID */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+        {steps.map((step, index) => {
+          const Icon = step.icon;
+
+          return (
+            <div
+              key={step.number}
+              className="group relative p-8 rounded-xl bg-white/[0.03] border border-white/10 hover:border-[#b38b5f]/50 transition-all duration-500 hover:-translate-y-2 backdrop-blur-sm overflow-hidden"
+            >
+              {/* ✨ EFEITO */}
+              <div
+                className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                style={{
+                  background:
+                    'radial-gradient(circle at center, rgba(179,139,95,0.15) 0%, rgba(179,139,95,0.05) 40%, transparent 80%)',
+                  transform: 'scale(1.5)',
+                }}
+              />
+
+              {/* ÍCONE */}
+              <div className="relative z-10 bg-[#b38b5f]/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6 border border-[#b38b5f]/20 group-hover:bg-[#b38b5f] transition-all duration-500">
+                <Icon className="w-8 h-8 text-[#b38b5f] group-hover:text-white transition-colors duration-500" />
+              </div>
+
+              {/* NÚMERO */}
+              <span className="relative z-10 text-sm text-[#b38b5f] font-semibold">
+                Etapa {step.number}
+              </span>
+
+              {/* TEXTO */}
+              <h3 className="relative z-10 text-xl font-semibold text-white mt-2 mb-3">
+                {step.title}
+              </h3>
+
+              <p className="relative z-10 text-gray-400 text-sm leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* 🚀 CTA FINAL */}     
+      <div className="text-center mt-40 relative z-10">
+        <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
+          Pronto para começar a sua{' '}
+          <span
+            className="bg-clip-text text-transparent"
+            style={{
+              backgroundImage: 'linear-gradient(180deg, #e3c59e 0%, #b38b5f 40%, #8a633a 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            jornada?
+          </span>
+        </h2>
+         <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-[#b38b5f]/40 to-transparent mx-auto mb-8"></div>
+
+        <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          Nossa equipe está preparada para transformar seu sonho de viajar,
+          trabalhar ou estudar no exterior em realidade.
+        </p>
       </div>
     </section>
   );
