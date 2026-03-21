@@ -32,6 +32,7 @@ export default function AboutKorus() {
               Korus
             </span>
           </h2>
+          <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-[#b38b5f]/40 to-transparent mx-auto mb-8"></div>
 
           <p className="mt-6 text-white/70 leading-relaxed">
             A Korus nasceu com o propósito de simplificar processos internacionais

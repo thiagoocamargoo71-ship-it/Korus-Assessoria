@@ -1,6 +1,7 @@
 import { Globe, MapPin, FileCheck, Shield, TrendingUp } from 'lucide-react';
 
 export default function WorldPath() {
+  // 1. A variável aqui se chama pathSteps
   const pathSteps = [
     {
       icon: Globe,
@@ -30,63 +31,87 @@ export default function WorldPath() {
   ];
 
   return (
-    <section className="py-20 section-gradient relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <svg className="w-full h-full" viewBox="0 0 1200 800">
-          <defs>
-            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.5"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
+    <section id="services" className="relative py-32 px-6 overflow-hidden bg-[#1A1F26]">
+      
+      {/* 🎨 FUNDO INTEGRADO COM O HERO */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(179,139,95,0.15),transparent_60%)]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1A1F26] via-[#0B1F3A] to-[#1A1F26] opacity-90"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Seu Caminho para o Mundo
+      {/* 🌫️ TEXTURA / GRAIN */}
+      <div className="absolute inset-0 opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/noise.png')]"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* 🟡 TÍTULO COM DESTAQUE BRONZE */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
+            Seu caminho para o <span 
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage: `linear-gradient(180deg, #e3c59e 0%, #b38b5f 40%, #8a633a 100%)`,
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                filter: "drop-shadow(0px -1px 0.5px rgba(255,255,255,0.3))"
+              }}
+            >mundo</span>
           </h2>
+          <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-[#b38b5f]/40 to-transparent mx-auto mb-8"></div>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto">
             Transformamos seus sonhos internacionais em realidade com planejamento estratégico
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        {/* 💎 GRID DE SERVIÇOS - CORRIGIDO DE services.map PARA pathSteps.map */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {pathSteps.map((step, index) => {
-            const Icon = step.icon;
+            const Icon = step.icon; // Agora pegando do array correto
             return (
               <div
                 key={index}
-                className="group card-glass p-8 hover:bg-white/12 transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="group relative p-8 rounded-xl bg-white/[0.03] border border-white/10 hover:border-[#b38b5f]/50 transition-all duration-500 hover:-translate-y-2 backdrop-blur-sm overflow-hidden cursor-default"
               >
-                <div className="bg-gradient-to-br from-[#3B82F6] to-[#E11D48] w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-8 h-8 text-white" />
+                {/* ✨ EFEITO DOURADO EMANANTE NO HOVER ✨ */}
+                <div 
+                  className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out pointer-events-none"
+                  style={{
+                    background: `radial-gradient(circle at center, rgba(179,139,95,0.15) 0%, rgba(179,139,95,0.05) 40%, transparent 80%)`,
+                    transform: 'scale(1.5)',
+                  }}
+                />
+                
+                {/* ÍCONE EM BRONZE */}
+                <div className="relative z-10 bg-[#b38b5f]/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6 border border-[#b38b5f]/20 group-hover:bg-[#b38b5f] group-hover:shadow-[0_0_25px_rgba(179,139,95,0.4)] transition-all duration-500">
+                  <Icon className="w-8 h-8 text-[#b38b5f] group-hover:text-white transition-colors duration-500" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{step.description}</p>
+
+                <h3 className="relative z-10 text-xl font-bold text-white mb-4 group-hover:text-[#e3c59e] transition-colors font-serif uppercase tracking-tight">
+                  {step.title}
+                </h3>
+
+                <p className="relative z-10 text-white/50 leading-relaxed group-hover:text-white/80 transition-colors text-sm">
+                  {step.description}
+                </p>
               </div>
             );
           })}
         </div>
 
-        <div className="card-glass rounded-3xl p-12 text-center">
-          <div className="inline-block bg-white/20 p-6 rounded-2xl mb-8">
-            <Globe className="w-20 h-20 text-white" />
+        {/* 🌍 CARD DE ALCANCE GLOBAL */}
+        <div className="relative z-10 bg-white/[0.02] border border-white/10 rounded-3xl p-12 text-center backdrop-blur-md">
+          <div className="inline-block bg-[#b38b5f]/20 p-6 rounded-2xl mb-8 border border-[#b38b5f]/30">
+            <Globe className="w-16 h-16 text-[#e3c59e]" />
           </div>
-          <h3 className="text-3xl font-bold text-white mb-4">
+          <h3 className="text-3xl font-bold text-white mb-4 font-serif">
             Mais de 40 Países ao Seu Alcance
           </h3>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
             Nossa expertise global permite que você explore oportunidades em todos os continentes.
-            Do planejamento à aprovação, estamos com você em cada etapa da jornada internacional.
+            Do planejamento à aprovação, estamos com você em cada etapa da jornada.
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-white">
             {['América do Norte', 'Europa', 'Ásia', 'Oceania', 'Oriente Médio', 'América Latina'].map((region, index) => (
               <span
                 key={index}
-                className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30 hover:bg-white/30 transition-colors"
+                className="bg-white/5 backdrop-blur-sm px-6 py-2 rounded-full border border-white/10 hover:border-[#b38b5f]/50 hover:bg-[#b38b5f]/10 transition-all cursor-default text-sm font-medium"
               >
                 {region}
               </span>

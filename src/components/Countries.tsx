@@ -51,6 +51,7 @@ export default function Countries() {
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Países Atendidos
           </h2>
+          <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-[#b38b5f]/40 to-transparent mx-auto mb-8"></div>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Assessoria especializada para os principais destinos internacionais
           </p>

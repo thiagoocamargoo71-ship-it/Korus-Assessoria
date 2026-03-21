@@ -40,7 +40,7 @@ export default function Footer() {
                 { label: 'Sobre', id: 'about' },
                 { label: 'Serviços', id: 'services' },
                 { label: 'Países', id: 'countries' },
-                { label: 'Destinos', id: 'destinations' },
+                { label: 'Destinos', id: 'popularcountries' },
               ].map((link) => (
                 <li key={link.id}>
                   <button
@@ -81,15 +81,15 @@ export default function Footer() {
             <ul className="space-y-3 text-gray-300">
               <li>
                 <p className="text-sm">Email:</p>
-                <p className="font-semibold text-white">contato@korusassessoria.com</p>
+                <p className="font-semibold text-white">korusassessoria@gmail.com</p>
               </li>
               <li>
                 <p className="text-sm">Telefone:</p>
-                <p className="font-semibold text-white">+55 (11) 99999-9999</p>
+                <p className="font-semibold text-white">+55 (31) 91234-5678</p>
               </li>
               <li>
                 <p className="text-sm">Localização:</p>
-                <p className="font-semibold text-white">São Paulo, Brasil</p>
+                <p className="font-semibold text-white">Belo Horizonte, MG - Brasil</p>
               </li>
             </ul>
           </div>

@@ -5,7 +5,7 @@ import Benefits from './components/Benefits';
 import About from './components/About';
 import Services from './components/Services';
 import Countries from './components/Countries';
-import Destinations from './components/Destinations';
+import PopularCountries from './components/PopularCountries'; // ✅ ADICIONADO
 import WorldPath from './components/WorldPath';
 import Simulator from './components/Simulator';
 import HowItWorks from './components/HowItWorks';
@@ -46,7 +46,10 @@ function App() {
       <About />
       <Services />
       <Countries />
-      <Destinations />
+
+      {/* 🌍 NOVA SEÇÃO - PAÍSES MAIS PROCURADOS */}
+      <PopularCountries />
+
       <WorldPath />
       <Simulator />
       <HowItWorks />
