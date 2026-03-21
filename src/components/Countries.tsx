@@ -38,7 +38,7 @@ export default function Countries() {
   ];
 
   return (
-    <section id="services" className="relative py-32 px-6 overflow-hidden bg-background">
+    <section id="countries" className="relative py-32 px-6 overflow-hidden bg-background">
 
       {/* 🎨 FUNDO INTEGRADO COM O HERO */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(74, 94, 2, 0.32),transparent_60%)]"></div>

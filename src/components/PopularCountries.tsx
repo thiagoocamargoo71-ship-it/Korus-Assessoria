@@ -73,7 +73,7 @@ export default function PopularCountries() {
       {/* 🟡 TÍTULO COM DESTAQUE BRONZE */}
       <div className="text-center mb-20">
         <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
-          Países <span
+          Países mais procurados do <span
             className="bg-clip-text text-transparent"
             style={{
               backgroundImage: `linear-gradient(180deg, #e3c59e 0%, #b38b5f 40%, #8a633a 100%)`,
@@ -81,7 +81,7 @@ export default function PopularCountries() {
               WebkitTextFillColor: "transparent",
               filter: "drop-shadow(0px -1px 0.5px rgba(255,255,255,0.3))"
             }}
-          >mais procurados do mundo</span>
+          >mundo</span>
         </h2>
         <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-[#b38b5f]/40 to-transparent mx-auto mb-8"></div>
 

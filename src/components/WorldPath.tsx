@@ -31,11 +31,11 @@ export default function WorldPath() {
   ];
 
   return (
-    <section id="services" className="relative py-32 px-6 overflow-hidden bg-[#1A1F26]">
+    <section id="worldpath" className="relative py-32 px-6 overflow-hidden bg-background">
       
       {/* 🎨 FUNDO INTEGRADO COM O HERO */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(179,139,95,0.15),transparent_60%)]"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1A1F26] via-[#0B1F3A] to-[#1A1F26] opacity-90"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(74, 94, 2, 0.32),transparent_60%)]"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(120deg,#1A1F26, #0B1F3A)] opacity-90"></div>
 
       {/* 🌫️ TEXTURA / GRAIN */}
       <div className="absolute inset-0 opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/noise.png')]"></div>
