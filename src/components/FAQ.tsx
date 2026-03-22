@@ -40,7 +40,7 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="FAQ" className="relative py-32 px-6 overflow-hidden bg-background">
+    <section id="faq" className="relative py-32 px-6 overflow-hidden bg-background">
       
       {/* 🎨 FUNDO INTEGRADO COM O HERO */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(74, 94, 2, 0.32),transparent_60%)]"></div>
@@ -53,7 +53,7 @@ export default function FAQ() {
         
         {/* 🟡 TÍTULO COM DESTAQUE BRONZE */}
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
+          <h2 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">
             Perguntas <span 
               className="bg-clip-text text-transparent"
               style={{

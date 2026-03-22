@@ -40,7 +40,7 @@ export default function WhyKorus() {
 
         {/* 🟡 TÍTULO COM DESTAQUE EM BRONZE NA MARCA (Korus) */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold leading-tight text-white relative inline-block">
+          <h2 className="text-5xl md:text-6xl font-serif font-bold leading-tight text-white relative inline-block">
             Por que escolher a{' '}
             {/* 🌟 APENAS 'Korus' COM EFEITO METÁLICO 3D */}
             <span

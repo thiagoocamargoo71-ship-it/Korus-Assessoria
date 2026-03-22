@@ -65,7 +65,7 @@ export default function Contact() {
 
         {/* 🟡 HEADER */}
         <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
             Fale com a <span className="text-[#b38b5f]">Korus</span>
           </h2>
           <p className="text-white/70">
@@ -162,7 +162,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#b38b5f] to-[#8a633a] hover:scale-[1.02] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-[0_0_25px_rgba(179,139,95,0.4)]"
+                className="w-full py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-[#b38b5f] to-[#8a633a] hover:scale-[1.02] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-[0_0_25px_rgba(179,139,95,0.4)]"
               >
                 {isSubmitting ? 'Redirecionando...' : <>Começar Agora <Send className="w-4 h-4" /></>}
               </button>
@@ -172,20 +172,22 @@ export default function Contact() {
         </div>
 
         {/* 📲 WHATSAPP */}
-        <button
-          onClick={handleWhatsApp}
-          className="mt-8 w-full relative overflow-hidden bg-green-500 hover:bg-green-600 text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] shadow-[0_0_0px_rgba(34,197,94,0)] hover:shadow-[0_0_25px_rgba(34,197,94,0.5)]"
-        >
-          <MessageCircle className="w-5 h-5" />
-          Falar no WhatsApp
+<div className="flex justify-center">
+  <button
+    onClick={handleWhatsApp}
+    className="mt-9 inline-flex relative overflow-hidden bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg text-sm font-semibold items-center justify-center gap-2 transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-1 shadow-[0_8px_25px_rgba(0,0,0,0.6)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.8)]"
+  >
+    <MessageCircle className="w-5 h-5" />
+    Falar no WhatsApp
 
-          <div className="absolute inset-0 opacity-0 hover:opacity-100 transition duration-500 pointer-events-none"
-            style={{
-              background: 'radial-gradient(circle at center, rgba(34,197,94,0.25), transparent 70%)'
-            }}
-          />
-        </button>
-
+    <div
+      className="absolute inset-0 opacity-0 hover:opacity-100 transition duration-500 pointer-events-none"
+      style={{
+        background: 'radial-gradient(circle at center, rgba(34,197,94,0.25), transparent 70%)'
+      }}
+    />
+  </button>
+</div>
       </div>
     </section>
   );

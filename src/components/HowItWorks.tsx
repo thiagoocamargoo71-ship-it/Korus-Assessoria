@@ -42,7 +42,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section id="howItWorks" className="relative py-32 px-6 overflow-hidden bg-background">
+    <section id="HowltWorks" className="relative py-32 px-6 overflow-hidden bg-background">
 
       {/* 🎨 FUNDO */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(74, 94, 2, 0.32),transparent_60%)]"></div>
@@ -53,7 +53,7 @@ export default function HowItWorks() {
 
       {/* 🟡 TÍTULO */}
       <div className="text-center mb-20 relative z-10">
-        <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
+        <h2 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">
           Como{' '}
           <span
             className="bg-clip-text text-transparent"
@@ -118,27 +118,41 @@ export default function HowItWorks() {
       </div>
 
       {/* 🚀 CTA FINAL */}     
-      <div className="text-center mt-40 relative z-10">
-        <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
-          Pronto para começar a sua{' '}
-          <span
-            className="bg-clip-text text-transparent"
-            style={{
-              backgroundImage: 'linear-gradient(180deg, #e3c59e 0%, #b38b5f 40%, #8a633a 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            jornada?
-          </span>
-        </h2>
-         <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-[#b38b5f]/40 to-transparent mx-auto mb-8"></div>
+<div className="text-center mt-40 relative z-10">
+  <h2 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">
+    Pronto para começar a sua{' '}
+    <span
+      className="bg-clip-text text-transparent"
+      style={{
+        backgroundImage: 'linear-gradient(180deg, #e3c59e 0%, #b38b5f 40%, #8a633a 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+      }}
+    >
+      jornada?
+    </span>
+  </h2>
 
-        <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-          Nossa equipe está preparada para transformar seu sonho de viajar,
-          trabalhar ou estudar no exterior em realidade.
-        </p>
-      </div>
-    </section>
+  <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-[#b38b5f]/40 to-transparent mx-auto mb-12"></div>
+
+  {/* 🟡 CARD DE DESTAQUE */}
+  <div className="flex justify-center px-4">
+    <div className="bg-white/[0.04] border border-white/10 rounded-2xl backdrop-blur-md p-7 md:p-10 max-w-2xl text-center shadow-xl relative overflow-hidden">
+      
+      {/* brilho interno sutil */}
+      <div 
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{
+          background: "radial-gradient(circle at center, rgba(179,139,95,0.4) 0%, transparent 70%)"
+        }}
+      ></div>
+
+      <p className="text-lg md:text-xl text-white/80 leading-relaxed italic font-light relative z-10">
+        "Todos os dias, pessoas comuns transformam o sonho de viver no exterior em realidade — a diferença é ter a estratégia certa. Na Korus, nós cuidamos de cada detalhe do seu processo para maximizar suas chances e garantir que você chegue lá com segurança."
+      </p>
+    </div>
+  </div>
+</div>
+</section>
   );
 }

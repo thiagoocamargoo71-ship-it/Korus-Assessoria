@@ -56,12 +56,12 @@ export default function Reviews() {
   };
 
   return (
-    <section className="py-4 px-6 bg-background">
+    <section id="Reviews" className="py-4 px-6 bg-background">
       <div className="max-w-4xl mx-auto">
 
         {/* 🟡 TÍTULO */}
         <div className="text-center mb-10">
-          <h2 className="text-5xl font-bold text-white mb-5">
+          <h2 className="text-6xl font-bold text-white mb-5">
             Compartilhe sua{' '}
             <span className="text-[#b38b5f]">Experiência</span>
           </h2>

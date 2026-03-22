@@ -135,7 +135,7 @@ export default function Simulator() {
       <div className="relative z-10 max-w-4xl mx-auto w-full">
         
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
+          <h2 className="text-5xl md:text-6xl font-serif font-bold text-white mb-4">
             Simulador de <span 
               className="bg-clip-text text-transparent"
               style={{

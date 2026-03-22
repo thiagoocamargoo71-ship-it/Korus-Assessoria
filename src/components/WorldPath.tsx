@@ -43,7 +43,7 @@ export default function WorldPath() {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* 🟡 TÍTULO COM DESTAQUE BRONZE */}
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
+          <h2 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">
             Seu caminho para o <span 
               className="bg-clip-text text-transparent"
               style={{

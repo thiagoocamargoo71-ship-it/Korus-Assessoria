@@ -14,11 +14,23 @@ export default function Footer() {
     <section id="footer" className="relative py-49 px-7 overflow-hidden bg-background">
 
       {/* 🎨 FUNDO */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(74, 94, 2, 0.32),transparent_60%)]"></div>
-      <div className="absolute inset-0 bg-[linear-gradient(120deg,#1A1F26, #0B1F3A)] opacity-90"></div>
+<div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(74,94,2,0.25),transparent_60%)]"></div>
 
-      {/* 🌫️ TEXTURA */}
-      <div className="absolute inset-0 opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/noise.png')]"></div>
+<div className="absolute inset-0 bg-[linear-gradient(120deg,#0F141A,#071526)] opacity-95"></div>
+
+{/* 🌫️ TEXTURA */}
+<div className="absolute inset-0 opacity-[0.05] bg-[url('https://www.transparenttextures.com/patterns/noise.png')]"></div>
+
+{/* ✨ DIVISOR METÁLICO PREMIUM */}
+<div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#b38b5f]/60 to-transparent relative">
+
+  {/* brilho central suave */}
+  <div className="absolute inset-0 blur-sm opacity-70 bg-gradient-to-r from-transparent via-[#e3c59e]/70 to-transparent"></div>
+
+  {/* glow externo mais difuso */}
+  <div className="absolute inset-0 blur-md opacity-40 bg-gradient-to-r from-transparent via-[#b38b5f]/50 to-transparent"></div>
+
+</div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
 
@@ -62,7 +74,7 @@ export default function Footer() {
                 { label: 'Sobre', id: 'about' },
                 { label: 'Serviços', id: 'services' },
                 { label: 'Países', id: 'countries' },
-                { label: 'Destinos', id: 'popularcountries' },
+                { label: 'Destinos', id: 'destinations' },
               ].map((link) => (
                 <li key={link.id}>
                   <button
@@ -82,7 +94,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { label: 'Simulador', id: 'simulator' },
-                { label: 'Como Funciona', id: 'howltworks' },
+                { label: 'Como Funciona', id: 'HowltWorks' },
                 { label: 'FAQ', id: 'faq' },
                 { label: 'Avaliações', id: 'Reviews' },
                 { label: 'Contato', id: 'contact' },

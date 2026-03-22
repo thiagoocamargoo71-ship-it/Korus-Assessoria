@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden bg-background">
+    <section id="home" className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden bg-background">
 
       {/* 🎨 FUNDO COM GRADIENTE PROFUNDO */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(74, 94, 2, 0.32),transparent_60%)]"></div>
@@ -90,6 +90,12 @@ export default function Hero() {
 
           {/* Primário */}
           <button
+          onClick={() => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }}
   className="relative px-7 py-3 rounded-lg text-white font-medium transition transform hover:scale-105 overflow-hidden border border-white/20"
   style={{
     background: `
@@ -114,9 +120,17 @@ export default function Hero() {
 </button>
 
           {/* Secundário */}
-          <button className="px-7 py-3 rounded-lg border border-primaryLight text-white/80 hover:bg-primaryLight/10 transition">
-            Falar com um Especialista
-          </button>
+          <button 
+  onClick={() => {
+    const phoneNumber = '5511999999999';
+    const message = encodeURIComponent('Olá! Gostaria de solicitar uma análise do meu perfil.');
+    const url = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(url, '_blank'); // Abre o WhatsApp em nova aba ou app
+  }}          
+  className="px-7 py-3 rounded-lg border border-primaryLight text-white/80 hover:bg-primaryLight/10 transition"
+>
+  Falar com um Especialista
+</button>
 
         </div>
       </div>
