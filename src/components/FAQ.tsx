@@ -40,27 +40,55 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-20 section-gradient">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Perguntas Frequentes
+    <section id="FAQ" className="relative py-32 px-6 overflow-hidden bg-background">
+      
+      {/* 🎨 FUNDO INTEGRADO COM O HERO */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(74, 94, 2, 0.32),transparent_60%)]"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(120deg,#1A1F26, #0B1F3A)] opacity-90"></div>
+      
+      {/* 🌫️ TEXTURA / GRAIN */}
+      <div className="absolute inset-0 opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/noise.png')]"></div>
+
+      <div className="relative z-10 max-w-5xl mx-auto">
+        
+        {/* 🟡 TÍTULO COM DESTAQUE BRONZE */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">
+            Perguntas <span 
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage: `linear-gradient(180deg, #e3c59e 0%, #b38b5f 40%, #8a633a 100%)`,
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                filter: "drop-shadow(0px -1px 0.5px rgba(255,255,255,0.3))"
+              }}
+            >Frequentes</span>
           </h2>
-          <p className="text-xl text-gray-300">
-            Respostas para as dúvidas mais comuns sobre vistos internacionais
+          <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-[#b38b5f]/40 to-transparent mx-auto mb-8"></div>
+          <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-sans leading-relaxed">
+            Soluções de alta performance e consultoria estratégica para sua mobilidade global.
           </p>
         </div>
+          
+                {/* ✨ EFEITO DOURADO EMANANTE NO HOVER ✨ */}
+                <div 
+                  className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out pointer-events-none"
+                  style={{
+                    background: `radial-gradient(circle at center, rgba(179,139,95,0.15) 0%, rgba(179,139,95,0.05) 40%, transparent 80%)`,
+                    transform: 'scale(1.5)',
+                  }}
+                />
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="card-glass rounded-2xl overflow-hidden hover:bg-white/12 transition-all duration-300 animate-fade-in"
+              className="card-glass rounded2xl overflow-hidden hover:bg-white/15 transition-all duration-300 animate-fade-in"
               style={{ animationDelay: `${index * 50}ms` }}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
+                className="w-full px-6 py-2 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
               >
                 <span className="text-lg font-semibold text-white pr-8">
                   {faq.question}
@@ -88,13 +116,7 @@ export default function FAQ() {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-gray-300 mb-6">Não encontrou a resposta que procurava?</p>
-          <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-[#E11D48] hover:bg-[#c91c40] text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300"
-          >
-            Entre em Contato Conosco
-          </button>
+        
         </div>
       </div>
     </section>

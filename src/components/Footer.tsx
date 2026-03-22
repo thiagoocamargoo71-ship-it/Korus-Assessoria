@@ -11,29 +11,51 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="section-gradient text-white pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <section id="footer" className="relative py-32 px-6 overflow-hidden bg-background">
+
+      {/* 🎨 FUNDO */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(74, 94, 2, 0.32),transparent_60%)]"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(120deg,#1A1F26, #0B1F3A)] opacity-90"></div>
+
+      {/* 🌫️ TEXTURA */}
+      <div className="absolute inset-0 opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/noise.png')]"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+
+        {/* 💎 GRID */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
+          {/* 🔹 LOGO + FRASE */}
           <div>
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="bg-gradient-to-br from-white to-gray-200 p-2.5 rounded-lg">
-                <Globe className="w-7 h-7 text-[#0F2A44]" />
+            <div className="flex items-center gap-3 mb-6">
+
+              <div className="bg-gradient-to-br from-[#b38b5f] to-[#8a633a] p-3 rounded-xl shadow-lg">
+                <Globe className="w-6 h-6 text-white" />
               </div>
+
               <div>
-                <h3 className="text-xl font-bold">Korus</h3>
-                <p className="text-sm text-gray-300">Assessoria Internacional</p>
+                <h3 className="text-2xl font-bold text-white tracking-wide">
+                  KORUS
+                </h3>
+                <p className="text-xs text-white/60">
+                  Assessoria Internacional
+                </p>
               </div>
             </div>
-            <p className="text-gray-300 italic mb-6 leading-relaxed">
-              "Abrindo portas para o seu futuro internacional."
+
+            <p className="text-[#b38b5f] italic text-lg mb-4">
+              “Abrindo portas para o seu futuro internacional.”
             </p>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Especialistas em assessoria para vistos internacionais, transformando sonhos em realidade.
+
+            <p className="text-white/60 text-sm leading-relaxed">
+              Especialistas em assessoria para vistos internacionais,
+              transformando planos em conquistas reais.
             </p>
           </div>
 
+          {/* 🔹 LINKS */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Links Rápidos</h4>
+            <h4 className="text-white font-semibold mb-6">Navegação</h4>
             <ul className="space-y-3">
               {[
                 { label: 'Home', id: 'home' },
@@ -45,7 +67,7 @@ export default function Footer() {
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className="text-white/60 hover:text-[#b38b5f] transition-all duration-300 hover:translate-x-1"
                   >
                     {link.label}
                   </button>
@@ -54,20 +76,21 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* 🔹 RECURSOS */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Recursos</h4>
+            <h4 className="text-white font-semibold mb-6">Recursos</h4>
             <ul className="space-y-3">
               {[
                 { label: 'Simulador', id: 'simulator' },
-                { label: 'Como Funciona', id: 'how-it-works' },
+                { label: 'Como Funciona', id: 'howltworks' },
                 { label: 'FAQ', id: 'faq' },
-                { label: 'Avaliações', id: 'reviews' },
+                { label: 'Avaliações', id: 'Reviews' },
                 { label: 'Contato', id: 'contact' },
               ].map((link) => (
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className="text-white/60 hover:text-[#b38b5f] transition-all duration-300 hover:translate-x-1"
                   >
                     {link.label}
                   </button>
@@ -76,52 +99,70 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* 🔹 CONTATO */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Contato</h4>
-            <ul className="space-y-3 text-gray-300">
-              <li>
-                <p className="text-sm">Email:</p>
-                <p className="font-semibold text-white">korusassessoria@gmail.com</p>
-              </li>
-              <li>
-                <p className="text-sm">Telefone:</p>
-                <p className="font-semibold text-white">+55 (31) 91234-5678</p>
-              </li>
-              <li>
-                <p className="text-sm">Localização:</p>
-                <p className="font-semibold text-white">Belo Horizonte, MG - Brasil</p>
-              </li>
-            </ul>
-          </div>
-        </div>
+            <h4 className="text-white font-semibold mb-6">Contato</h4>
 
-        <div className="border-t border-white/20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-gray-400 text-sm text-center md:text-left">
-              © {currentYear} Korus Assessoria Internacional. Todos os direitos reservados.
-            </p>
+            <div className="space-y-4 text-white/60 text-sm">
+              <div>
+                <p>Email</p>
+                <p className="text-white font-medium">korusassessoria@gmail.com</p>
+              </div>
 
-            <div className="flex gap-4">
-              {[
-                { Icon: Facebook, href: '#' },
-                { Icon: Instagram, href: '#' },
-                { Icon: Linkedin, href: '#' },
-                { Icon: Twitter, href: '#' },
-              ].map(({ Icon, href }, index) => (
-                <a
-                  key={index}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white/10 hover:bg-white/20 p-3 rounded-lg transition-all duration-300 hover:scale-110"
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
+              <div>
+                <p>Telefone</p>
+                <p className="text-white font-medium">+55 (31) 91234-5678</p>
+              </div>
+
+              <div>
+                <p>Localização</p>
+                <p className="text-white font-medium">Brasil</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </footer>
+
+        {/* 🔻 DIVISOR */}
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+
+          <p className="text-white/40 text-sm text-center md:text-left">
+            © {currentYear} Korus Assessoria Internacional. Todos os direitos reservados.
+          </p>
+
+          {/* 🌈 REDES SOCIAIS */}
+          <div className="flex gap-4">
+
+            <a
+              href="#"
+              className="p-3 rounded-xl bg-white/5 hover:bg-[#1877F2]/20 transition-all hover:scale-110"
+            >
+              <Facebook className="w-5 h-5 text-[#1877F2]" />
+            </a>
+
+            <a
+              href="#"
+              className="p-3 rounded-xl bg-white/5 hover:bg-[#E1306C]/20 transition-all hover:scale-110"
+            >
+              <Instagram className="w-5 h-5 text-[#E1306C]" />
+            </a>
+
+            <a
+              href="#"
+              className="p-3 rounded-xl bg-white/5 hover:bg-[#0A66C2]/20 transition-all hover:scale-110"
+            >
+              <Linkedin className="w-5 h-5 text-[#0A66C2]" />
+            </a>
+
+            <a
+              href="#"
+              className="p-3 rounded-xl bg-white/5 hover:bg-[#1DA1F2]/20 transition-all hover:scale-110"
+            >
+              <Twitter className="w-5 h-5 text-[#1DA1F2]" />
+            </a>
+
+          </div>
+        </div>
+        </div>
+    </section>
   );
 }
