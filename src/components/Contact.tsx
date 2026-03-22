@@ -90,7 +90,7 @@ export default function Contact() {
                 Redirecionado para o Site!
               </h3>
               <p className="text-white/70">
-                Obrigado pela confiança, Boa Sote! 🙌
+                Obrigado pela confiança!!! 🙌
               </p>
             </div>
           ) : (

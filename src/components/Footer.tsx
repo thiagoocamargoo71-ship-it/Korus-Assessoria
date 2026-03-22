@@ -11,7 +11,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <section id="footer" className="relative py-32 px-6 overflow-hidden bg-background">
+    <section id="footer" className="relative py-49 px-7 overflow-hidden bg-background">
 
       {/* 🎨 FUNDO */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(74, 94, 2, 0.32),transparent_60%)]"></div>
@@ -116,7 +116,7 @@ export default function Footer() {
 
               <div>
                 <p>Localização</p>
-                <p className="text-white font-medium">Brasil</p>
+                <p className="text-white font-medium">Belo Horizonte - MG / Brasil</p>
               </div>
             </div>
           </div>
