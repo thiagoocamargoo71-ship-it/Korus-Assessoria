@@ -21,35 +21,56 @@ export default function Reviews() {
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  // 🔎 VALIDAÇÃO
   const validate = () => {
     const newErrors: Partial<FormData> = {};
 
-    if (!formData.name) newErrors.name = 'Digite seu nome';
-    if (!formData.country) newErrors.country = 'Informe o país';
-    if (!formData.comment) newErrors.comment = 'Escreva seu comentário';
+    if (!formData.name.trim()) newErrors.name = 'Digite seu nome';
+    if (!formData.country.trim()) newErrors.country = 'Informe o país';
+    if (!formData.comment.trim()) newErrors.comment = 'Escreva seu comentário';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  // 📤 SUBMIT
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError('');
 
     if (!validate()) return;
 
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase.from('reviews').insert([formData]);
-      if (error) throw error;
+      const payload = {
+        name: formData.name.trim(),
+        country: formData.country.trim(),
+        rating: formData.rating,
+        comment: formData.comment.trim(),
+      };
+
+      const { error } = await supabase
+        .from('reviews')
+        .insert([payload]);
+
+      if (error) {
+        console.error('Erro ao salvar avaliação:', error);
+        setSubmitError('Não foi possível salvar sua avaliação. Tente novamente.');
+        return;
+      }
 
       setSubmitted(true);
-      setFormData({ name: '', country: '', rating: 5, comment: '' });
+      setFormData({
+        name: '',
+        country: '',
+        rating: 5,
+        comment: '',
+      });
+      setErrors({});
     } catch (err) {
-      console.error(err);
+      console.error('Erro inesperado ao salvar avaliação:', err);
+      setSubmitError('Erro inesperado ao enviar avaliação.');
     } finally {
       setIsSubmitting(false);
     }
@@ -59,7 +80,6 @@ export default function Reviews() {
     <section id="Reviews" className="py-4 px-6 bg-background">
       <div className="max-w-4xl mx-auto">
 
-        {/* 🟡 TÍTULO */}
         <div className="text-center mb-10">
           <h2 className="text-6xl font-bold text-white mb-5">
             Compartilhe sua{' '}
@@ -70,7 +90,6 @@ export default function Reviews() {
           </p>
         </div>
 
-        {/* 💎 CARD */}
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-xl">
 
           {submitted ? (
@@ -82,43 +101,50 @@ export default function Reviews() {
               <p className="text-white/70">
                 Obrigado por compartilhar sua experiência 🙌
               </p>
+
+              <button
+                type="button"
+                onClick={() => setSubmitted(false)}
+                className="mt-6 px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#b38b5f] to-[#8a633a] hover:opacity-90 transition"
+              >
+                Enviar outra avaliação
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
 
-              {/* INPUTS */}
               <div className="grid md:grid-cols-2 gap-4">
 
-                {/* NOME */}
                 <div>
                   <input
                     type="text"
                     placeholder="Seu nome"
                     value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
+                    onChange={(e) => {
+                      setFormData({ ...formData, name: e.target.value });
+                      setErrors({ ...errors, name: '' });
+                    }}
                     className={`w-full px-4 py-3 rounded-xl bg-white/5 border ${
                       errors.name ? 'border-red-500' : 'border-white/10'
-                    } text-white focus:border-[#b38b5f] outline-none transition`}
+                    } text-white placeholder-gray-400 focus:border-[#b38b5f] outline-none transition`}
                   />
                   {errors.name && (
                     <p className="text-red-400 text-sm mt-1">{errors.name}</p>
                   )}
                 </div>
 
-                {/* PAÍS */}
                 <div>
                   <input
                     type="text"
                     placeholder="País do visto"
                     value={formData.country}
-                    onChange={(e) =>
-                      setFormData({ ...formData, country: e.target.value })
-                    }
+                    onChange={(e) => {
+                      setFormData({ ...formData, country: e.target.value });
+                      setErrors({ ...errors, country: '' });
+                    }}
                     className={`w-full px-4 py-3 rounded-xl bg-white/5 border ${
                       errors.country ? 'border-red-500' : 'border-white/10'
-                    } text-white focus:border-[#b38b5f] outline-none transition`}
+                    } text-white placeholder-gray-400 focus:border-[#b38b5f] outline-none transition`}
                   />
                   {errors.country && (
                     <p className="text-red-400 text-sm mt-1">{errors.country}</p>
@@ -126,7 +152,6 @@ export default function Reviews() {
                 </div>
               </div>
 
-              {/* ⭐ STARS */}
               <div>
                 <p className="text-white mb-2 text-sm">Avaliação</p>
                 <div className="flex gap-1">
@@ -153,18 +178,18 @@ export default function Reviews() {
                 </div>
               </div>
 
-              {/* COMENTÁRIO */}
               <div>
                 <textarea
                   placeholder="Conte sua experiência..."
                   value={formData.comment}
-                  onChange={(e) =>
-                    setFormData({ ...formData, comment: e.target.value })
-                  }
+                  onChange={(e) => {
+                    setFormData({ ...formData, comment: e.target.value });
+                    setErrors({ ...errors, comment: '' });
+                  }}
                   rows={3}
                   className={`w-full px-4 py-3 rounded-xl bg-white/5 border ${
                     errors.comment ? 'border-red-500' : 'border-white/10'
-                  } text-white focus:border-[#b38b5f] outline-none transition resize-none focus:h-32`}
+                  } text-white placeholder-gray-400 focus:border-[#b38b5f] outline-none transition resize-none focus:h-32`}
                 />
                 {errors.comment && (
                   <p className="text-red-400 text-sm mt-1">
@@ -173,7 +198,12 @@ export default function Reviews() {
                 )}
               </div>
 
-              {/* 🚀 BOTÃO */}
+              {submitError && (
+                <div className="rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-3">
+                  <p className="text-red-300 text-sm">{submitError}</p>
+                </div>
+              )}
+
               <button
                 type="submit"
                 disabled={isSubmitting}
