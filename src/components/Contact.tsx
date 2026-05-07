@@ -36,6 +36,24 @@ export default function Contact() {
 
       if (error) throw error;
 
+      const subject = encodeURIComponent('Solicitação de contato via Site');
+
+      const body = encodeURIComponent(
+`Olá!
+Um cliente solicitou contato via site.
+
+Nome: ${formData.name}
+E-mail: ${formData.email}
+Telefone: ${formData.phone}
+País desejado: ${formData.country}
+Tipo de Visto: ${formData.visa_type}
+Objetivo: ${formData.message}`
+      );
+
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=atendimentokorusassessoria@gmail.com&su=${subject}&body=${body}`;
+
+      window.open(gmailUrl, '_blank');
+
       setSubmitted(true);
     } catch (err) {
       console.error(err);
@@ -87,10 +105,10 @@ export default function Contact() {
             <div className="text-center py-14">
               <CheckCircle className="w-12 h-12 text-green-400 mx-auto mb-4" />
               <h3 className="text-2xl text-white font-semibold mb-2">
-                Redirecionado para o Site!
+                E-mail preparado com sucesso!
               </h3>
               <p className="text-white/70">
-                Obrigado pela confiança!!! 🙌
+                Confira o Gmail aberto em uma nova aba e envie a solicitação. 🙌
               </p>
             </div>
           ) : (
@@ -139,15 +157,15 @@ export default function Contact() {
                 onChange={(e) => setFormData({ ...formData, visa_type: e.target.value })}
                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white outline-none focus:border-[#b38b5f]"
               >
-                <option value=""className="text-black">Tipo de visto</option>
-                <option value="turismo"className="text-black">Turismo</option>
-                <option value="trabalho"className="text-black">Trabalho</option>
-                <option value="estudo"className="text-black">Estudo</option>
-                <option value="negocios"className="text-black">Negócios</option>
-                <option value="intercâmbio"className="text-black">Intercâmbio</option>
-                <option value="imigrante"className="text-black">Imigrante</option>
-                <option value="executivo"className="text-black">Executivo</option>
-                <option value="investidor"className="text-black">Investidor</option>
+                <option value="" className="text-black">Tipo de visto</option>
+                <option value="Turismo" className="text-black">Turismo</option>
+                <option value="Trabalho" className="text-black">Trabalho</option>
+                <option value="Estudo" className="text-black">Estudo</option>
+                <option value="Negócios" className="text-black">Negócios</option>
+                <option value="Intercâmbio" className="text-black">Intercâmbio</option>
+                <option value="Imigrante" className="text-black">Imigrante</option>
+                <option value="Executivo" className="text-black">Executivo</option>
+                <option value="Investidor" className="text-black">Investidor</option>
               </select>
 
               <textarea
@@ -164,7 +182,7 @@ export default function Contact() {
                 disabled={isSubmitting}
                 className="w-full py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-[#b38b5f] to-[#8a633a] hover:scale-[1.02] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-[0_0_25px_rgba(179,139,95,0.4)]"
               >
-                {isSubmitting ? 'Redirecionando...' : <>Começar Agora <Send className="w-4 h-4" /></>}
+                {isSubmitting ? 'Preparando e-mail...' : <>Começar Agora <Send className="w-4 h-4" /></>}
               </button>
 
             </form>
@@ -172,22 +190,22 @@ export default function Contact() {
         </div>
 
         {/* 📲 WHATSAPP */}
-<div className="flex justify-center">
-  <button
-    onClick={handleWhatsApp}
-    className="mt-9 inline-flex relative overflow-hidden bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg text-sm font-semibold items-center justify-center gap-2 transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-1 shadow-[0_8px_25px_rgba(0,0,0,0.6)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.8)]"
-  >
-    <MessageCircle className="w-5 h-5" />
-    Falar no WhatsApp
+        <div className="flex justify-center">
+          <button
+            onClick={handleWhatsApp}
+            className="mt-9 inline-flex relative overflow-hidden bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg text-sm font-semibold items-center justify-center gap-2 transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-1 shadow-[0_8px_25px_rgba(0,0,0,0.6)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.8)]"
+          >
+            <MessageCircle className="w-5 h-5" />
+            Falar no WhatsApp
 
-    <div
-      className="absolute inset-0 opacity-0 hover:opacity-100 transition duration-500 pointer-events-none"
-      style={{
-        background: 'radial-gradient(circle at center, rgba(34,197,94,0.25), transparent 70%)'
-      }}
-    />
-  </button>
-</div>
+            <div
+              className="absolute inset-0 opacity-0 hover:opacity-100 transition duration-500 pointer-events-none"
+              style={{
+                background: 'radial-gradient(circle at center, rgba(34,197,94,0.25), transparent 70%)'
+              }}
+            />
+          </button>
+        </div>
       </div>
     </section>
   );
