@@ -89,13 +89,13 @@ export default function Hero() {
         <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
 
           {/* Primário */}
-          <button
-          onClick={() => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  }}
+          <button 
+  onClick={() => {
+    window.open(
+      'https://www.korus.me/?agency=prime-vistos',
+      '_blank'
+    );
+  }}    
   className="relative px-7 py-3 rounded-lg text-white font-medium transition transform hover:scale-105 overflow-hidden border border-white/20"
   style={{
     background: `
@@ -119,12 +119,13 @@ export default function Hero() {
   </span>
  </button>
 
- <button 
+ {/* Secundário */}
+          <button 
   onClick={() => {
-    window.open(
-      'https://www.korus.me/?agency=prime-vistos',
-      '_blank'
-    );
+    const phoneNumber = '5531973424524';
+    const message = encodeURIComponent('Olá! Gostaria de solicitar uma análise do meu perfil.');
+    const url = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(url, '_blank'); // Abre o WhatsApp em nova aba ou app
   }}          
   className="px-7 py-3 rounded-lg border border-primaryLight text-white/80 hover:bg-primaryLight/10 transition"
 >
