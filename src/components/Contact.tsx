@@ -32,8 +32,13 @@ export default function Contact() {
   const subject = encodeURIComponent('Solicitação de contato via Site');
 
   const body = encodeURIComponent(
-`Olá!
-Um cliente solicitou contato via site.
+`Olá,
+
+Você recebeu uma nova solicitação de atendimento premium através do site da Korus Assessoria Internacional.
+
+Abaixo estão as informações fornecidas pelo cliente para análise inicial do perfil e continuidade do atendimento especializado.
+
+Desejamos um excelente atendimento e uma experiência memorável ao cliente. ✨
 
 Nome: ${formData.name}
 E-mail: ${formData.email}
