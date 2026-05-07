@@ -26,19 +26,12 @@ export default function Contact() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    try {
-      const { error } = await supabase.from('contacts').insert([
-        { ...formData, form_type: 'contact' },
-      ]);
+  const subject = encodeURIComponent('Solicitação de contato via Site');
 
-      if (error) throw error;
-
-      const subject = encodeURIComponent('Solicitação de contato via Site');
-
-      const body = encodeURIComponent(
+  const body = encodeURIComponent(
 `Olá!
 Um cliente solicitou contato via site.
 
@@ -48,19 +41,31 @@ Telefone: ${formData.phone}
 País desejado: ${formData.country}
 Tipo de Visto: ${formData.visa_type}
 Objetivo: ${formData.message}`
-      );
+  );
 
-      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=atendimentokorusassessoria@gmail.com&su=${subject}&body=${body}`;
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=atendimentokorusassessoria@gmail.com&su=${subject}&body=${body}`;
 
-      window.open(gmailUrl, '_blank');
+  // Abre imediatamente para evitar bloqueio do navegador
+  const emailWindow = window.open(gmailUrl, '_blank');
 
-      setSubmitted(true);
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setIsSubmitting(false);
+  try {
+    const { error } = await supabase.from('contacts').insert([
+      { ...formData, form_type: 'contact' },
+    ]);
+
+    if (error) throw error;
+
+    setSubmitted(true);
+  } catch (err) {
+    console.error(err);
+
+    if (!emailWindow) {
+      window.location.href = gmailUrl;
     }
-  };
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const handleWhatsApp = () => {
     window.open(
