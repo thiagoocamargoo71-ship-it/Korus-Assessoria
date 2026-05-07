@@ -118,12 +118,12 @@ export default function Footer() {
             <div className="space-y-4 text-white/60 text-sm">
               <div>
                 <p>Email</p>
-                <p className="text-white font-medium">korusassessoria@gmail.com</p>
+                <p className="text-white font-medium">atendimentokorusassessoria@gmail.com</p>
               </div>
 
               <div>
                 <p>Telefone</p>
-                <p className="text-white font-medium">+55 (31) 91234-5678</p>
+                <p className="text-white font-medium">+55 (31) 97342-4524</p>
               </div>
 
               <div>

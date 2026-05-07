@@ -62,7 +62,7 @@ export default function AboutKorus() {
               boxShadow: "0 0 25px rgba(21,69,165,0.6)"
             }}
             onClick={() => {
-    const phoneNumber = '5511999999999';
+    const phoneNumber = '5531973424524';
     const message = encodeURIComponent('Olá! Gostaria de solicitar uma análise do meu perfil.');
     const url = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(url, '_blank'); // Abre o WhatsApp em nova aba ou app

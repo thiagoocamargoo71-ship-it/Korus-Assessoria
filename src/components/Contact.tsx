@@ -46,7 +46,7 @@ export default function Contact() {
 
   const handleWhatsApp = () => {
     window.open(
-      'https://wa.me/5511999999999?text=Olá! Gostaria de informações sobre assessoria de vistos.',
+      'https://wa.me/5531973424524?text=Olá! Gostaria de informações sobre assessoria de vistos.',
       '_blank'
     );
   };
