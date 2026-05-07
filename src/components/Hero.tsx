@@ -117,15 +117,14 @@ export default function Hero() {
   <span className="relative z-10">
     Solicitar Análise de Perfil →
   </span>
-</button>
+ </button>
 
-          {/* Secundário */}
-          <button 
+ <button 
   onClick={() => {
-    const phoneNumber = '5531973424524';
-    const message = encodeURIComponent('Olá! Gostaria de solicitar uma análise do meu perfil.');
-    const url = `https://wa.me/${phoneNumber}?text=${message}`;
-    window.open(url, '_blank'); // Abre o WhatsApp em nova aba ou app
+    window.open(
+      'https://www.korus.me/?agency=prime-vistos',
+      '_blank'
+    );
   }}          
   className="px-7 py-3 rounded-lg border border-primaryLight text-white/80 hover:bg-primaryLight/10 transition"
 >
