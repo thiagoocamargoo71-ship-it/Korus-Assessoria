@@ -7,6 +7,7 @@ interface Message {
 }
 
 export default function ChatWidget() {
+    console.log('ChatWidget carregou');
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
