@@ -274,6 +274,8 @@ export default function ChatWidget() {
               padding: '12px 16px',
               fontSize: '14px',
               outline: 'none',
+              color: '#111827',
+              backgroundColor: 'white',
             }}
           />
 

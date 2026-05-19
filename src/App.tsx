@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import ChatWidget from './components/ChatWidget';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Benefits from './components/Benefits';
@@ -57,6 +58,7 @@ function App() {
       <Reviews />
       <Contact />
       <Footer />
+      <ChatWidget />
     </div>
   );
 }
